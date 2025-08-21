@@ -107,8 +107,8 @@ async function listarServicos(){
                     <td>${nomeObra}</td>
                     <td>${nomeCaminhao}</td>
                     <td>${databr}</td>
-                    <td>R$ ${c.quantidade_carrada}</td>
-                    <td>${c.peso} L</td>
+                    <td>${c.quantidade_carrada}</td>
+                    <td>${c.peso} T</td>
                 </tr>
             `;
         });

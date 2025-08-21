@@ -71,7 +71,7 @@ async function adicionarServico(event) {
     const peso = document.getElementById("peso").value;
     const data_at = document.getElementById("dataSv").value
     const obra_id = document.getElementById("obra").value;
-    const caminhao_id = document.getElementById("caminhao").value;
+    const caminhao_id = document.getElementById("caminhaoSv").value;
 
     const{data, error} = await supabase
         .from("servicos")
@@ -93,8 +93,8 @@ async function adicionarAbastecimento(event) {
     const valor_total = document.getElementById("valor_totalAbastecimento").value;
     const litros = document.getElementById("litroAbastecimento").value;
     const data_ab = document.getElementById("dataAb").value
-    const empresa_id = document.getElementById("empresa").value;
-    const caminhao_id = document.getElementById("caminhao").value;
+    const empresa_id = document.getElementById("empresaAb").value;
+    const caminhao_id = document.getElementById("caminhaoAb").value;
 
     const{data, error} = await supabase
         .from("abastecimento")
@@ -106,6 +106,30 @@ async function adicionarAbastecimento(event) {
         alert("Abastecimento adicionado com sucesso!")
         document.getElementById("formAbastecimento").reset();
         listarAbastecimentos();
+    }
+}
+
+/*Adicionar Obras*/
+async function adicionarObra(event) {
+    event.preventDefault();
+
+    const nome = document.getElementById("nome").value;
+    const empresa_id = document.getElementById("empresaOb").value;
+    const preco_fixo = document.getElementById("preco_fixo").checked;
+    const valor_km = document.getElementById("valor_km").value;
+    const km_distancia = document.getElementById("km_distancia").value;
+    const valor_total = document.getElementById("valor_total").value;
+
+    const {data, error} = await supabase
+        .from("obras")
+        .insert([{nome: nome, id_empresa: empresa_id, preco_fixo: preco_fixo, valor_km: valor_km, km_distancia: km_distancia, valor_total: valor_total}]);
+
+    if (error){
+        alert("Erro ao adicionar abastecimento: " + error.message);
+    } else {
+        alert("Obra adicionada com sucesso!")
+        document.getElementById("formObra").reset();
+        listarObras();
     }
 }
 

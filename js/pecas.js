@@ -83,7 +83,7 @@ async function listarPecas(){
                     <td>${c.id}</td>
                     <td>${nomeCaminhao}</td>
                     <td>${databr}</td>
-                    <td>R$ ${c.tipo}</td>
+                    <td>${c.tipo}</td>
                     <td>${c.km_atual.toFixed(3)}</td>
                 </tr>
             `;

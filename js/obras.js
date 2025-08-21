@@ -88,7 +88,7 @@ async function listarObras() {
                     <td>${precoFixoTx}</td>
                     <td>${c.valor_km ? Number(c.valor_km).toFixed(2):"-"}</td>
                     <td>${c.km_distancia? Number(c.km_distancia).toFixed(3):"-"}</td>
-                    <td>${c.valor_total? Number(c.valor_total).toFixed(2):"-"}</td>
+                    <td>R$ ${c.valor_total? Number(c.valor_total).toFixed(2):"-"}</td>
                 </tr>
             `;
         });
