@@ -99,6 +99,13 @@ form button{
     cursor: pointer;
 }
 
+.org{
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
 
 /*Tabelas*/
 table{
@@ -121,4 +128,29 @@ th{
 
 td{
     background-color: #6b6b6b;
+}
+
+/*Home*/
+#hom{
+    padding: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.inter{
+    flex: 1 1 300px;
+    width: 38%;
+    padding: 20px;
+    margin: 10px;
+    background-color: lightblue;
+    border: 1px solid #333;
+    text-align: center;
+}
+
+.btnAdicionarHom{
+    padding: 15px;
+    margin: 5px;
+    font-size: 20px;
 }

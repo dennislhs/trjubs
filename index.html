@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/style01.css">
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script defer src="js/script.js"></script>
 </head>
 <body>
     <div class="header">
@@ -23,6 +25,86 @@
             <a href="caminhoes.html">Caminhões</a>
             <a href="obras.html">Obras</a>
         </div> 
+    </div>
+
+    <div id="hom">
+        <div class="inter">    
+            <h2 class="cabecalho">Adicionar Serviços</h2>
+            <button class="btnAdicionarHom" onclick="abrirFormulario ('formServico')">Adicionar Serviço</button>
+
+            <form id="formServico" class="oculto" onsubmit="adicionarServico(event)">
+
+                <input class="org" type="number" id="qtd" placeholder="Quantidade de Carrada" required>
+                <input class="org" type="number" step="0.001" id="peso" placeholder="Peso em Toneladas" required>
+                <br>
+                <input class="org" type="date" id="dataSv" required>
+                <br>
+
+                <label class="org" for="obra">Obra:</label>
+                <select class="org" id="obra" required>
+                    <option value="">Selecione uma obra</option>
+                </select>
+                <br>
+                <label class="org" for="caminhaoSv">Caminhão:</label>
+                <select class="org" id="caminhaoSv" required>
+                    <option value="">Selecione um caminhão</option>
+                </select>
+
+                <button class="org" type="submit">Salvar</button>
+            </form>
+        </div>
+
+        <div class="inter">
+            <h2 class="cabecalho">Abastecimentos</h2>
+            <button class="btnAdicionarHom" onclick="abrirFormulario ('formAbastecimento')">Adicionar Abastecimento</button>
+
+            <form id="formAbastecimento" class="oculto" onsubmit="adicionarAbastecimento(event)">
+
+                <label class="org" for="valor_totalAbastecimento">R$</label>
+                <input class="org" type="number" step="0.01" id="valor_totalAbastecimento" placeholder="valor do Abastecimento" required>
+                <input class="org" type="number" step="0.01" id="litroAbastecimento" placeholder="Litros do Abastecimento" required>
+                <br>
+                <input class="org" type="dateAb" id="data" required>
+                <br>
+
+                <label class="org" for="empresaAb">Empresa:</label>
+                <select class="org" id="empresaAb" required>
+                    <option value="">Selecione uma empresa</option>
+                </select>
+
+                <label class="org" for="caminhaoAb">Caminhão:</label>
+                <select class="org" id="caminhaoAb" required>
+                    <option value="">Selecione um caminhão</option>
+                </select>
+
+                <button class="org" type="submit">Salvar</button>
+            </form>
+        </div>
+
+        <div class="inter">
+            <h2 class="cabecalho">Obras</h2>
+            <button class="btnAdicionarHom" onclick="abrirFormulario ('formObra')">Adicionar Obra</button>
+
+            <form id="formObra" class="oculto" onsubmit="adicionarObra(event)">
+
+                <label class="org" for="empresaOb">Empresa:</label>
+                <select class="org" id="empresaOb" required>
+                    <option value="">Selecione uma empresa</option>
+                </select>
+
+                <input class="org" type="text" id="nome" placeholder="Nome da Obra" required>
+                <br>
+                <label class="org" for="preco_fixo">Preço Fixo? Sim:</label>
+                <input class="org" type="checkbox" id="preco_fixo" required>
+                <br>
+                <input class="org" type="number" id="valor_km" placeholder="Valor do KM/T" required>
+                <input class="org" type="number" id="km_distancia" placeholder="Distancia em KM">
+                <input class="org" type="number" id="valor_total" placeholder="Valor total preço fixo" required>
+                <br>
+                <button class="org" type="submit">Salvar</button>
+            </form>
+    </div>
+
     </div>
 
 </body>

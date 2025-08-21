@@ -7,19 +7,21 @@ function abrirFormulario (id){
     document.getElementById(id).classList.toggle("oculto");
 }
 
-async function carregarServicos(){
-    const {data, error} = await supabase.from("obras").select("*");
+async function carregarObras(){
+    const {data, error} = await supabase
+        .from("obras")
+        .select("*");
     if (error){
-        console.error("Erro ao carregar servicos:", error);
+        console.error("Erro ao carregar Obras:", error);
         return;
     }
 
-    let selectServico = document.getElementById("servicos");
-    data.forEach(servico =>{
+    let selectObra = document.getElementById("obra");
+    data.forEach(obras =>{
         let option = document.createElement("option");
-        option.value = servico.id;
-        option.textContent = servico.nome;
-        selectServico.appendChild(option);
+        option.value = obras.id;
+        option.textContent = obras.nome;
+        selectObra.appendChild(option);
     });
 }
 
@@ -59,7 +61,7 @@ async function adicionarServico(event) {
     } else{
         alert("Serviço adicionado com sucesso!")
         document.getElementById("formServico").reset();
-        listarSevicos();
+        listarServicos();
     }
 }
 
