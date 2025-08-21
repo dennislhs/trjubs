@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peças</title>
+    <link rel="stylesheet" href="css/style01.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script defer src="js/pecas.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <h1><span class="sp">TR.</span> JUBS</h1>
+        </div>
+
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="abastecimento.html">Abastecimentos</a>
+            <a href="pecas.html">Peças</a>
+            <a href="empresas.html">Empresas</a>
+            <a href="caminhoes.html">Caminhões</a>
+            <a href="obras.html">Obras</a>
+        </div> 
+    </div>
+    
+    <div class="caminhoes">
+        <h2 class="cabecalho">Peças</h2>
+        <button class="btnAdicionar" onclick="abrirFormulario ('formPeca')">Adicionar Peça</button>
+
+        <form id="formPeca" class="oculto" onsubmit="adicionarPeca(event)">
+
+            <input type="text" id="tipoPeca" placeholder="Descrição" required>
+            <input type="number" step="0.001" id="km_atual" placeholder="KM Atual" required>
+            <br>
+            <input type="date" id="data" required>
+            <br>
+
+            <label for="caminhao">Caminhão:</label>
+            <select id="caminhao" required>
+                <option value="">Selecione um caminhão</option>
+            </select>
+
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+    
+    <div class="lista">
+        <h3>Lista de Peças</h3>
+        <div id="listaPecas"></div>
+    </div>
+</body>
+</html>

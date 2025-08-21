@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empresas</title>
+
+    <link rel="stylesheet" href="css/style01.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script defer src="js/empresas.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <h1><span class="sp">TR.</span> JUBS</h1>
+        </div>
+
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="abastecimento.html">Abastecimentos</a>
+            <a href="pecas.html">Peças</a>
+            <a href="empresas.html">Empresas</a>
+            <a href="caminhoes.html">Caminhões</a>
+            <a href="obras.html">Obras</a>
+        </div> 
+    </div>
+
+    <div class="caminhoes">
+        <h2 class="cabecalho">Empresas</h2>
+        <button class="btnAdicionar" onclick="abrirFormulario('formEmpresa')">Adicionar Empresa</button>
+        <form id="formEmpresa" class="oculto" onsubmit="adicionarEmpresa(event)">
+            <input type="text" id="nomeEmpresa" placeholder="Nome da Empresa" required>
+            <input type="text" id="cnpjEmpresa" placeholder="CNPJ" required>
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+
+    <div class="lista">
+        <h3>Lista de Empresas</h3>
+        <div id="listaEmpresas"></div>
+    </div>
+    
+</body>
+</html>

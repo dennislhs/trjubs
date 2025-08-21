@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obras</title>
+    <link rel="stylesheet" href="css/style01.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script defer src="js/obras.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <h1><span class="sp">TR.</span> JUBS</h1>
+        </div>
+
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="abastecimento.html">Abastecimentos</a>
+            <a href="pecas.html">Peças</a>
+            <a href="empresas.html">Empresas</a>
+            <a href="caminhoes.html">Caminhões</a>
+            <a href="obras.html">Obras</a>
+        </div> 
+    </div>
+    
+    <div class="caminhoes">
+        <h2 class="cabecalho">Obras</h2>
+        <button class="btnAdicionar" onclick="abrirFormulario ('formObra')">Adicionar Obra</button>
+
+        <form id="formObra" class="oculto" onsubmit="adicionarObra(event)">
+
+            <label for="empresa">Empresa:</label>
+            <select id="empresa" required>
+                <option value="">Selecione uma empresa</option>
+            </select>
+
+            <input type="text" id="nome" placeholder="Nome da Obra" required>
+            <label for="preco_fixo">Preço Fixo? Sim:</label>
+            <input type="checkbox" id="preco_fixo" required>
+            <br>
+            <input type="number" id="valor_km" placeholder="Valor do KM/T" required>
+            <input type="number" id="km_distancia" placeholder="Distancia em KM">
+            <input type="number" id="valor_total" placeholder="Valor total preço fixo" required>
+            <br>
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+
+    <div class="lista">
+        <h3>Lista de Obras</h3>
+        <div id="listaObras"></div>
+    </div>
+
+</body>
+</html>
