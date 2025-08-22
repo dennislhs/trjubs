@@ -64,8 +64,15 @@ async function listarEmpresas() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", listarEmpresas);
+document.addEventListener("DOMContentLoaded", () => {
+    listarEmpresas();
 
-document.querySelector('.menu-toggle').addEventListener('click', function () {
-    document.querySelector('.menu').classList.toggle('show');
-  });
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+
+    if (menuToggle && menu) {
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('show');
+        });
+    }
+});

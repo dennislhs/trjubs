@@ -47,10 +47,10 @@ h1{
     font-weight: bold;
 }
 
-.menu{
-    display: flex;
-    gap: 15px;
-    justify-content: center;
+.menu {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 
 .menu a:hover{
@@ -62,10 +62,6 @@ h1{
 /* Menu hambúrguer para celular */
 .menu-toggle{
     display: none;
-    font-size: 28px;
-    background: none;
-    border: none;
-    cursor: pointer;
 }
 
 /* TABELA responsiva */
@@ -193,8 +189,8 @@ th{
 }
 
 td{
-    background-color: #6b6b6b;
-    color: white;
+    background-color: #444;
+    color: #f1f1f1;
 }
 
 /*  
@@ -238,6 +234,11 @@ td{
     background: #0056b3;
 }
 
+.menu.show {
+    display: flex;
+    z-index: 1000;
+}
+
 /*  
 ****** Responsividade ******  
 Regras para telas menores  
@@ -247,19 +248,21 @@ Regras para telas menores
     /* Ajusta menu */
     .menu-toggle{
         display: block;
-        font-size: 28px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        margin-top: 10px;
     }
 
-    .menu{
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: cyan;
-        padding: 10px;
+    .menu {
+    display: none;
+    flex-direction: column;
+    background: #f4f4f4;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    }
+
+    .menu.show{
+        display: flex;
     }
 
     .menu a{
@@ -282,7 +285,4 @@ Regras para telas menores
     form input, form select{
         max-width: 100%;
     }
-}
-.menu.show {
-    display: flex;
 }
