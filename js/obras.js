@@ -33,9 +33,9 @@ async function adicionarObra(event) {
     const nome = document.getElementById("nome").value;
     const empresa_id = document.getElementById("empresa").value;
     const preco_fixo = document.getElementById("preco_fixo").checked;
-    const valor_km = document.getElementById("valor_km").value;
-    const km_distancia = document.getElementById("km_distancia").value;
-    const valor_total = document.getElementById("valor_total").value;
+    const valor_km = document.getElementById("valor_km").value || null;
+    const km_distancia = document.getElementById("km_distancia").value || null;
+    const valor_total = document.getElementById("valor_total").value || null;
 
     const {data, error} = await supabase
         .from("obras")
@@ -69,7 +69,7 @@ async function listarObras() {
                         <th>Preço Fixo?</th>
                         <th>Valor do KM/T</th>
                         <th>Distancia (KM)</th>
-                        <th>Valor Total</th>
+                        <th>Valor Preço Fixo</th>
                     </tr>
                 </thead>
                 <tbody>

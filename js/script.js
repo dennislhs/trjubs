@@ -68,7 +68,7 @@ async function adicionarServico(event) {
     event.preventDefault();
 
     const qtd = document.getElementById("qtd").value;
-    const peso = document.getElementById("peso").value;
+    const peso = document.getElementById("peso").value || null;
     const data_at = document.getElementById("dataSv").value
     const obra_id = document.getElementById("obra").value;
     const caminhao_id = document.getElementById("caminhaoSv").value;
@@ -91,7 +91,7 @@ async function adicionarAbastecimento(event) {
     event.preventDefault();
 
     const valor_total = document.getElementById("valor_totalAbastecimento").value;
-    const litros = document.getElementById("litroAbastecimento").value;
+    const litros = document.getElementById("litroAbastecimento").value || null;
     const data_ab = document.getElementById("dataAb").value
     const empresa_id = document.getElementById("empresaAb").value;
     const caminhao_id = document.getElementById("caminhaoAb").value;
@@ -116,9 +116,9 @@ async function adicionarObra(event) {
     const nome = document.getElementById("nome").value;
     const empresa_id = document.getElementById("empresaOb").value;
     const preco_fixo = document.getElementById("preco_fixo").checked;
-    const valor_km = document.getElementById("valor_km").value;
-    const km_distancia = document.getElementById("km_distancia").value;
-    const valor_total = document.getElementById("valor_total").value;
+    const valor_km = document.getElementById("valor_km").value || null;
+    const km_distancia = document.getElementById("km_distancia").value || null;
+    const valor_total = document.getElementById("valor_total").value || null;
 
     const {data, error} = await supabase
         .from("obras")

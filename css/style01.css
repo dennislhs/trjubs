@@ -66,8 +66,11 @@ h1{
 
 /* TABELA responsiva */
 .table-container{
+
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     border-radius: 8px;
+    width: 100%;
 }
 
 .header a:link, .header a:visited{
@@ -244,7 +247,7 @@ td{
 Regras para telas menores  
 */
 
-@media (max-width: 768px){
+@media (max-width: 769px){
     /* Ajusta menu */
     .menu-toggle{
         display: block;
@@ -254,7 +257,7 @@ Regras para telas menores
     display: none;
     flex-direction: column;
     background: #f4f4f4;
-    position: absolute;
+    position: static;
     top: 60px;
     right: 10px;
     padding: 10px;
@@ -275,7 +278,12 @@ Regras para telas menores
     }
 
     table{
+        min-width: auto;
         font-size: 14px;
+    }
+
+    th, td{
+        padding: 8px;
     }
 
     .inter{

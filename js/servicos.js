@@ -47,7 +47,7 @@ async function adicionarServico(event) {
     event.preventDefault();
 
     const qtd = document.getElementById("qtd").value;
-    const peso = document.getElementById("peso").value;
+    const peso = document.getElementById("peso").value || null;
     const data_at = document.getElementById("data").value
     const obra_id = document.getElementById("obra").value;
     const caminhao_id = document.getElementById("caminhao").value;
@@ -108,7 +108,7 @@ async function listarServicos(){
                     <td>${nomeCaminhao}</td>
                     <td>${databr}</td>
                     <td>${c.quantidade_carrada}</td>
-                    <td>${c.peso} T</td>
+                    <td>${c.peso? Number(c.peso).toFixed(3) :"-"} T</td>
                 </tr>
             `;
         });
