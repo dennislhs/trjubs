@@ -66,3 +66,7 @@ async function listarCaminhoes(){
 }
 
 document.addEventListener("DOMContentLoaded", listarCaminhoes);
+
+document.querySelector('.menu-toggle').addEventListener('click', function () {
+    document.querySelector('.menu').classList.toggle('show');
+  });

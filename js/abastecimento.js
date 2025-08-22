@@ -124,3 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     carregarCaminhoes();
     listarAbastecimentos();
 });
+
+document.querySelector('.menu-toggle').addEventListener('click', function () {
+    document.querySelector('.menu').classList.toggle('show');
+  });

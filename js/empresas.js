@@ -65,3 +65,7 @@ async function listarEmpresas() {
 }
 
 document.addEventListener("DOMContentLoaded", listarEmpresas);
+
+document.querySelector('.menu-toggle').addEventListener('click', function () {
+    document.querySelector('.menu').classList.toggle('show');
+  });

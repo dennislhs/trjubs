@@ -245,6 +245,15 @@ Regras para telas menores
 
 @media (max-width: 768px){
     /* Ajusta menu */
+    .menu-toggle{
+        display: block;
+        font-size: 28px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
     .menu{
         display: none;
         flex-direction: column;

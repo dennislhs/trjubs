@@ -105,3 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     carregarEmpresas();
     listarObras();
 })
+
+document.querySelector('.menu-toggle').addEventListener('click', function () {
+    document.querySelector('.menu').classList.toggle('show');
+  });
