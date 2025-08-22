@@ -4,16 +4,18 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 /*
-******BORY******
+******BODY******
 */
 
 body{
     font-size: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: #c4c4c4;
+    line-height: 1.5;
 }
 
 a{
@@ -53,12 +55,13 @@ h1{
     text-decoration: underline;
 }
 
-/* Caixa da seção caminhões e da lista*/
+/* Caixa que envolve caminhões e listas*/
 .caminhoes, .lista{
     margin: 20px;
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 8px;
+    background: #f9f9f9;
 }
 
 /*Esconder os elementos*/
@@ -69,36 +72,64 @@ h1{
 /*Estilo inpunt*/
 .btnAdicionar{
 
-    padding: 5px;
+    padding: 8px 12px;
     margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background: #007BFF;
+    color: #fff;
+    transition: 0.3s;
 }
 
+.btnAdicionar:hover{
+    background: #0056b3;
+}
+
+/*  
+****** Formulários ******  
+*/
+form {
+    text-align: center;
+}
+
+/* Inputs */
 form input{
     margin: 5px;
     padding: 8px;
+    width: 100%;
+    max-width: 400px;
 }
+
+/* Labels */
 
 form label{
     margin: 5px;
+    display: block;
+    font-weight: bold;
 }
+
+/* Select */
 
 form select{
     padding: 6px;
     border: 1px solid;
-
-}
-
-form{
-    text-align: center;
+    width: 100%;
+    max-width: 400px;
 }
 
 
-/*Botão Form*/
+/* Botão dentro do form */
 form button{
     padding: 8px 15px;
     cursor: pointer;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }
 
+/* Classe para inputs organizados */
 .org{
     display: block;
     width: 100%;
@@ -107,13 +138,17 @@ form button{
 }
 
 
-/*Tabelas*/
+/*  
+****** Tabelas ******  
+*/
 table{
     width: 100%;
     border-collapse: collapse;
     margin-top: 15px;
+    font-size: 16px;
 }
 
+/* Células */
 th, td{
     border: 2px solid #000;
     padding: 10px;
@@ -128,9 +163,12 @@ th{
 
 td{
     background-color: #6b6b6b;
+    color: white;
 }
 
-/*Home*/
+/*  
+****** Página inicial (Home) ******  
+*/
 #hom{
     padding: 10px;
     flex-wrap: wrap;
@@ -139,18 +177,55 @@ td{
     justify-content: center;
 }
 
+
+/* Blocos internos */
 .inter{
     flex: 1 1 300px;
-    width: 38%;
+    max-width: 500px;
     padding: 20px;
     margin: 10px;
     background-color: lightblue;
     border: 1px solid #333;
     text-align: center;
+    border-radius: 10px;
 }
 
+/* Botão da home */
 .btnAdicionarHom{
     padding: 15px;
     margin: 5px;
     font-size: 20px;
+    border: none;
+    border-radius: 8px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btnAdicionarHom:hover{
+    background: #0056b3;
+}
+
+/*  
+****** Responsividade ******  
+Regras para telas menores  
+*/
+
+@media (max-width: 768px){
+    body{
+        font-size: 18px;
+    }
+
+    table{
+        font-size: 14px;
+    }
+
+    .inter{
+        flex: 1 1 100%;
+    }
+
+    form input, form select{
+        max-width: 100%;
+    }
 }
