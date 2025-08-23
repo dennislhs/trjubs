@@ -58,6 +58,26 @@
     
     <div class="lista">
         <h3>Lista de Abastecimentos</h3>
+        
+        <div class="filtro">
+
+            <select id="filtroEmpresa">
+                <option value="">Empresa</option>
+            </select>
+
+            <select id="filtroCaminhao">
+                <option value="">Caminhões</option>
+            </select>
+
+            <br>
+            <label for="dataIn">De:</label>
+            <input type="date" id="dataIn">
+
+            <label for="dataFn">Até:</label>
+            <input type="date" id="dataFn">
+            
+        </div>
+
         <div class="table-container" id="listaAbastecimentos"></div>
     </div>
 

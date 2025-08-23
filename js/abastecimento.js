@@ -8,18 +8,29 @@ function abrirFormulario (id){
 }
 
 async function carregarEmpresas(){
-    const {data, error} = await supabase.from("empresas").select("*");
+    const {data, error} = await supabase
+        .from("empresas")
+        .select("*");
     if (error){
         console.error("Erro ao carregar empresas:", error);
         return;
     }
 
     let selectEmpresa = document.getElementById("empresa");
+    let filtroEmpresa = document.getElementById("filtroEmpresa");
+
     data.forEach(empresa =>{
-        let option = document.createElement("option");
-        option.value = empresa.id;
-        option.textContent = empresa.nome;
-        selectEmpresa.appendChild(option);
+
+        let option1 = document.createElement("option");
+        option1.value = empresa.id;
+        option1.textContent = empresa.nome;
+        selectEmpresa.appendChild(option1);
+
+        let option2 = document.createElement("option");
+        option2.value = empresa.id;
+        option2.textContent = empresa.nome;
+        filtroEmpresa.appendChild(option2);
+
     });
 }
 
@@ -33,11 +44,20 @@ async function carregarCaminhoes() {
     }
 
     let selectCaminhao = document.getElementById("caminhao");
+    let filtroCaminhao = document.getElementById("filtroCaminhao");
+    
     data.forEach(c => {
-        let option = document.createElement("option")
-        option.value = c.id;
-        option.textContent = c.nome;
-        selectCaminhao.appendChild(option);
+
+        let option1 = document.createElement("option");
+        option1.value = c.id;
+        option1.textContent = c.nome;
+        selectCaminhao.appendChild(option1);
+
+        let option2 = document.createElement("option");
+        option2.value = c.id;
+        option2.textContent = c.nome;
+        filtroCaminhao.appendChild(option2);
+
     });
 }
 
@@ -65,13 +85,34 @@ async function adicionarAbastecimento(event) {
 
 async function listarAbastecimentos(){
 
-    const {data, error} = await supabase
-        .from('abastecimento')
-        .select(`
-            *, 
-            empresas(nome), 
-            caminhoes(nome)
-        `);
+    const filtroCaminhao = document.getElementById("filtroCaminhao").value;
+    const filtroEmpresa = document.getElementById("filtroEmpresa").value;
+    const dataIn = document.getElementById("dataIn").value;
+    const dataFn = document.getElementById("dataFn").value;
+
+    let query = supabase
+        .from("abastecimento")
+        .select(`*,
+            caminhoes(nome),
+            empresas(nome)`);
+
+    if (filtroEmpresa) {
+        query = query.eq('id_empresa', filtroEmpresa);
+    }
+
+    if (filtroCaminhao) {
+        query = query.eq('id_caminhao', filtroCaminhao);
+    }
+
+    if (dataIn){
+        query = query.gte('data', dataIn);
+    }
+
+    if (dataFn){
+        query = query.lte('data', dataFn);
+    }
+
+    const {data, error} = await query
 
     if (error){
         document.getElementById("listaAbastecimentos").innerHTML = "<p>Erro ao carregar abastecimentos.</p>";
@@ -92,8 +133,7 @@ async function listarAbastecimentos(){
         `;
 
         data.forEach(c => {
-            const datapd = c.data;
-            const databr = new Date(datapd + 'T00:00:00').toLocaleDateString('pt-BR');
+            const databr = new Date(c.data + 'T00:00:00').toLocaleDateString('pt-BR');
 
             const nomeCaminhao = c.caminhoes ? c.caminhoes.nome: 'N/A';
             const nomeEmpresa = c.empresas ? c.empresas.nome: 'N/A';
@@ -123,6 +163,15 @@ document.addEventListener("DOMContentLoaded", () => {
     carregarEmpresas();
     carregarCaminhoes();
     listarAbastecimentos();
+
+    const fe = document.getElementById("filtroEmpresa");
+    const fc = document.getElementById("filtroCaminhao");
+    const di = document.getElementById("dataIn");
+    const df = document.getElementById("dataFn");
+    if (fe) fe.addEventListener("change", listarAbastecimentos);
+    if (fc) fc.addEventListener("change", listarAbastecimentos);
+    if (di) di.addEventListener("change", listarAbastecimentos);
+    if (df) df.addEventListener("change", listarAbastecimentos);
 
     const menuToggle = document.querySelector('.menu-toggle');
     const menu = document.querySelector('.menu');

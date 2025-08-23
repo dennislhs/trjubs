@@ -17,11 +17,20 @@ async function carregarObras(){
     }
 
     let selectObra = document.getElementById("obra");
+    let filtroObra = document.getElementById("filtroObra")
+
     data.forEach(obras =>{
-        let option = document.createElement("option");
-        option.value = obras.id;
-        option.textContent = obras.nome;
-        selectObra.appendChild(option);
+
+        let option1 = document.createElement("option");
+        option1.value = obras.id;
+        option1.textContent = obras.nome;
+        selectObra.appendChild(option1);
+
+        let option2 = document.createElement('option');
+        option2.value = obras.id;
+        option2.textContent = obras.nome;
+        filtroObra.appendChild(option2);
+
     });
 }
 
@@ -35,11 +44,20 @@ async function carregarCaminhoes() {
     }
 
     let selectCaminhao = document.getElementById("caminhao");
+    let filtroCaminhao = document.getElementById("filtroCaminhao");
+
     data.forEach(c => {
-        let option = document.createElement("option")
-        option.value = c.id;
-        option.textContent = c.nome;
-        selectCaminhao.appendChild(option);
+
+        let option1 = document.createElement("option");
+        option1.value = c.id;
+        option1.textContent = c.nome;
+        selectCaminhao.appendChild(option1);
+
+        let option2 = document.createElement("option")
+        option2.value = c.id;
+        option2.textContent = c.nome;
+        filtroCaminhao.appendChild(option2);
+
     });
 }
 
@@ -67,13 +85,34 @@ async function adicionarServico(event) {
 
 async function listarServicos(){
 
-    const {data, error} = await supabase
+    const filtroObra = document.getElementById("filtroObra").value;
+    const filtroCaminhao = document.getElementById("filtroCaminhao").value;
+    const dataIn = document.getElementById("dataIn").value;
+    const dataFn = document.getElementById("dataFn").value;
+
+    let query = supabase
         .from('servicos')
-        .select(`
-            *, 
-            obras(nome), 
-            caminhoes(nome)
-        `);
+        .select(`*, 
+            obras(nome),
+            caminhoes(nome)`);
+
+    if (filtroObra) {
+        query = query.eq('id_obra', filtroObra);
+    }
+
+    if (filtroCaminhao){
+        query = query.eq('id_caminhao', filtroCaminhao)
+    }
+
+    if (dataIn) {
+        query = query.gte('data', dataIn);
+    }
+
+    if (dataFn) {
+        query = query.lte('data', dataFn);
+    }
+
+    const {data, error} = await query
 
     if (error){
         document.getElementById("listaServicos").innerHTML = "<p>Erro ao carregar Servicos.</p>";
@@ -94,8 +133,7 @@ async function listarServicos(){
         `;
 
         data.forEach(c => {
-            const datapd = c.data;
-            const databr = new Date(datapd + 'T00:00:00').toLocaleDateString('pt-BR');
+            const databr = new Date(c.data + 'T00:00:00').toLocaleDateString('pt-BR');
 
             const nomeCaminhao = c.caminhoes ? c.caminhoes.nome: 'N/A';
             const nomeObra = c.obras ? c.obras.nome: 'N/A';
@@ -125,6 +163,16 @@ document.addEventListener("DOMContentLoaded", () => {
     carregarObras();
     carregarCaminhoes();
     listarServicos();
+
+    const fo = document.getElementById("filtroObra");
+    const fc = document.getElementById("filtroCaminhao");
+    const di = document.getElementById("dataIn");
+    const df = document.getElementById("dataFn");
+
+    if (fo) fo.addEventListener("change", listarServicos);
+    if (fc) fc.addEventListener("change", listarServicos);
+    if (di) di.addEventListener("change", listarServicos);
+    if (df) df.addEventListener("change", listarServicos);
 
     const menuToggle = document.querySelector('.menu-toggle');
     const menu = document.querySelector('.menu');

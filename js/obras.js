@@ -19,11 +19,20 @@ async function carregarEmpresas() {
     }
 
     let selectEmpresa = document.getElementById("empresa");
+    let filtroEmpresa = document.getElementById("filtroEmpresa");
+
     data.forEach(empresa =>{
-        let option = document.createElement("option");
-        option.value = empresa.id;
-        option.textContent = empresa.nome;
-        selectEmpresa.appendChild(option);
+
+        let option1 = document.createElement("option");
+        option1.value = empresa.id;
+        option1.textContent = empresa.nome;
+        selectEmpresa.appendChild(option1);
+
+        let option2 = document.createElement("option");
+        option2.value = empresa.id;
+        option2.textContent = empresa.nome;
+        filtroEmpresa.appendChild(option2);
+
     });
 }
 
@@ -52,10 +61,19 @@ async function adicionarObra(event) {
 
 async function listarObras() {
     
-    const {data, error} = await supabase
-        .from('obras')
-        .select(`*, empresas(nome)`);
+    const filtroEmpresa = document.getElementById("filtroEmpresa").value;
+
+    let query = supabase
+        .from("obras")
+        .select(`*, 
+            empresas(nome)`);
+
+    if (filtroEmpresa) {
+        query = query.eq('id_empresa', filtroEmpresa);
+    }
     
+    const {data, error} = await query
+
     if (error){
         document.getElementById("listaObras").innerHTML = "<p>Erro ao carregar Obras.</p>";
     } else {
@@ -104,6 +122,9 @@ async function listarObras() {
 document.addEventListener("DOMContentLoaded", () => {
     carregarEmpresas();
     listarObras();
+
+    const fe = document.getElementById("filtroEmpresa");
+    if (fe) fe.addEventListener("change", listarObras)
 
     const menuToggle = document.querySelector('.menu-toggle');
     const menu = document.querySelector('.menu');

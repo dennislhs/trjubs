@@ -173,7 +173,7 @@ form button{
 table{
     width: 100%;
     border-collapse: collapse;
-    margin-top: 15px;
+    margin-top: 5px;
     font-size: 16px;
     min-width: 600px;
 }
@@ -242,6 +242,32 @@ td{
     z-index: 1000;
 }
 
+/*
+******FILTRO******
+*/
+.lista h3{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.filtro{
+    text-align: right;
+    margin: 0 auto;
+}
+
+.filtro select{
+    
+    max-width: 80%;
+    background-color: #fff;
+    border-radius: 8px 8px;
+}
+
+.filtro label, input{
+    max-width: 80%;
+    font-size: 12px;
+    border-radius: 8px 8px;
+}
+
 /*  
 ****** Responsividade ******  
 Regras para telas menores  
@@ -291,6 +317,23 @@ Regras para telas menores
     }
 
     form input, form select{
-        max-width: 100%;
+        max-width: 90%;
     }
+
+    /*
+    ******FILTRO******
+    */
+
+    .filtro{
+        font-size: 10px;
+    }
+
+    .filtro select{
+        margin-bottom: 5px;
+    }
+   
+    #dataIn, #dataFn {
+    max-width: 110px;
+    font-size: 7px;
+  }
 }

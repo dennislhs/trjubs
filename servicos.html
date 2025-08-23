@@ -38,6 +38,7 @@
             <input type="number" id="qtd" placeholder="Quantidade de Carrada" required>
             <input type="number" step="0.001" id="peso" placeholder="Peso em Toneladas">
             <br>
+            <label for="data">Data:</label>
             <input type="date" id="data" required>
             <br>
 
@@ -57,6 +58,25 @@
     
     <div class="lista">
         <h3>Lista de Serviços</h3>
+
+        <div class="filtro">
+
+            <select id="filtroObra">
+                <option value="">Obras</option>
+            </select>
+
+            <select id="filtroCaminhao">
+                <option value="">Caminhões</option>
+            </select>
+            <br>
+            <label for="dataIn">De:</label>
+            <input type="date" id="dataIn">
+
+            <label for="dataFn">Até:</label>
+            <input type="date" id="dataFn">
+
+        </div>
+
         <div class="table-container" id="listaServicos"></div>
     </div>
 
