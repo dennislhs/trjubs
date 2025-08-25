@@ -174,14 +174,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (di) di.addEventListener("change", listarServicos);
     if (df) df.addEventListener("change", listarServicos);
 
-    const menuToggle = document.getElementById("menu-toggle");
     const hamburger = document.getElementById("hamburger");
-    const container = document.querySelector(".container");
+    const menu = document.getElementById("menu");
 
-    if (menuToggle && hamburger) {
-        menuToggle.addEventListener("click", () => {
-            hamburger.classList.toggle("show");
-            container.classList.toggle("shift");
-        });
-    }
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        menu.classList.toggle('active');
+    })
 });

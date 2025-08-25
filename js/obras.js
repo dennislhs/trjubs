@@ -126,14 +126,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const fe = document.getElementById("filtroEmpresa");
     if (fe) fe.addEventListener("change", listarObras)
 
-    const menuToggle = document.getElementById("menu-toggle");
     const hamburger = document.getElementById("hamburger");
-    const container = document.querySelector(".container");
+    const menu = document.getElementById("menu");
 
-    if (menuToggle && hamburger) {
-        menuToggle.addEventListener("click", () => {
-            hamburger.classList.toggle("show");
-            container.classList.toggle("shift");
-        });
-    }
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        menu.classList.toggle('active');
+    })
 });

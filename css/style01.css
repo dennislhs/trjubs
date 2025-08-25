@@ -368,54 +368,74 @@ Regras para telas menores
 }
 
 /* Botão hambúrguer fixo */
-.menu-toggle {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  font-size: 28px;
-  cursor: pointer;
-  z-index: 1001;
-  color: white;
-  background: #005bea;
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: none;
-}
-
-/* Menu lateral */
 .hamburger {
-  position: fixed;
-  top: 0;
-  left: -250px; /* escondido inicialmente */
-  width: 250px;
-  height: 100%;
-  background: #0d47a1;
-  color: white;
-  padding-top: 60px;
-  transition: 0.3s ease;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
+    width: 48px;
+    height:  40px;
+    top: 15px;
+    left: 15px;
+    position: fixed;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #0056b3;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    z-index: 1001;
 }
 
-.hamburger a {
-  padding: 15px 20px;
-  text-decoration: none;
-  color: white;
-  font-size: 18px;
-  transition: 0.2s;
+.hamburger span{
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: #000;
+    border-radius: 2px;
+    transition: 0.4s;
 }
 
-.hamburger a:hover {
+.hamburger.active span:nth-child(1){
+    transform: rotate(45deg) translate(7px, 7.5px);
+}
+
+.hamburger.active span:nth-child(2){
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3){
+    transform: rotate(-45deg) translate(6.5px, -7.5px);
+}
+
+
+.menu{
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 250px;
+    height: 100%;
+    background: #005bea;
+    padding: 100px 20px;
+    transition: 0.3s;
+}
+
+.menu.active {
+    left: 0;
+}
+
+.menu a {
+    display: block;
+    padding: 15px 0;
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+}
+
+
+.menu a:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* Quando aberto */
-.hamburger.show {
-  left: 0;
-}
-
-/* Ajusta o conteúdo pra não ficar escondido */
+/* Ajusta o conteúdo pra não ficar escondido*/
 .container {
   transition: margin-left 0.3s ease;
 }
