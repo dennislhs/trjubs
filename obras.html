@@ -11,60 +11,59 @@
     <script defer src="js/obras.js"></script>
 </head>
 <body>
-    <div class="header">
-        <div class="logo">
-            <h1><span class="sp">TR.</span> JUBS</h1>
-        </div>
-        
-        <button class="menu-toggle">☰</button>
-        
-        <div class="menu">
-            <a href="index.html">Home</a>
-            <a href="servicos.html">Serviços</a>
-            <a href="abastecimento.html">Abastecimentos</a>
-            <a href="pecas.html">Peças</a>
-            <a href="empresas.html">Empresas</a>
-            <a href="caminhoes.html">Caminhões</a>
-            <a href="obras.html" style="background-color: blue; color: #fff;">Obras</a>
-        </div> 
-    </div>
+    <div class="containerList">
+        <h1><span class="sp">TR.</span> JUBS</h1>
+
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+
+        <nav class="hamburger" id="hamburger">
+            <a href="index.html">🏠 Home</a>
+            <a href="servicos.html">🧱 Serviços</a>
+            <a href="abastecimento.html">🛢 Abastecimentos</a>
+            <a href="pecas.html">🔧 Peças</a>
+            <a href="empresas.html">🏢 Empresas</a>
+            <a href="caminhoes.html">🚚 Caminhões</a>
+            <a href="obras.html" style="background-color: blue; color: #fff;">🏗️ Obras</a>
+            <a href="totais.html">📊 Totais</a>
+        </nav> 
     
-    <div class="caminhoes">
-        <h2 class="cabecalho">Obras</h2>
-        <button class="btnAdicionar" onclick="abrirFormulario ('formObra')">Adicionar Obra</button>
+        <div class="adicionar">
+            <h2 class="cabecalho">Obras</h2>
+            <button class="btnAdicionar" onclick="abrirFormulario ('formObra')">Adicionar Obra</button>
 
-        <form id="formObra" class="oculto" onsubmit="adicionarObra(event)">
+            <form id="formObra" class="oculto" onsubmit="adicionarObra(event)">
 
-            <label for="empresa">Empresa:</label>
-            <select id="empresa" required>
-                <option value="">Selecione uma empresa</option>
-            </select>
+                <label for="empresa">Empresa:</label>
+                <select id="empresa" required>
+                    <option value="">Selecione uma empresa</option>
+                </select>
 
-            <input type="text" id="nome" placeholder="Nome da Obra" required>
-            <br>
-            <label for="preco_fixo">Preço Fixo? Sim:</label>
-            <input type="checkbox" id="preco_fixo">
-            <br>
-            <input type="number" step="0.01" id="valor_km" placeholder="Valor do KM/T">
-            <input type="number" step="0.01" id="km_distancia" placeholder="Distancia em KM">
-            <input type="number" step="0.01" id="valor_total" placeholder="Valor preço fixo">
-            <br>
-            <button type="submit">Salvar</button>
-        </form>
-    </div>
-
-    <div class="lista">
-        <h3>Lista de Obras</h3>
-
-        <div class="filtro">
-
-            <select id="filtroEmpresa">
-                <option value="">Empresa</option>
-            </select>
-
+                <input type="text" id="nome" placeholder="Nome da Obra" required>
+                <br>
+                <label for="preco_fixo">Preço Fixo? Sim:</label>
+                <input type="checkbox" id="preco_fixo">
+                <br>
+                <input type="number" step="0.01" id="valor_km" placeholder="Valor do KM/T">
+                <input type="number" step="0.01" id="km_distancia" placeholder="Distancia em KM">
+                <input type="number" step="0.01" id="valor_total" placeholder="Valor preço fixo">
+                <br>
+                <button type="submit">Salvar</button>
+            </form>
         </div>
-        
-        <div class="table-container" id="listaObras"></div>
+
+        <div class="lista">
+            <h3>Lista de Obras</h3>
+
+            <div class="filtro">
+
+                <select id="filtroEmpresa">
+                    <option value="">Empresa</option>
+                </select>
+
+            </div>
+            
+            <div class="table-container" id="listaObras"></div>
+        </div>
     </div>
 
 </body>

@@ -12,10 +12,14 @@
 */
 
 body{
-    font-size: 20px;
+    margin: 0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: #c4c4c4;
-    line-height: 1.5;
+    background: linear-gradient(135deg, #00c6fb, #005bea);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
 }
 
 a{
@@ -23,45 +27,14 @@ a{
 }
 
 h1{
-    color: #000000;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: #000;
 }
 
-.sp{
-    color: #ffffff;
-}
-
-/*
-******HEADER******
-*/
-
-.header{
-    background-color: cyan;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.logo{
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.menu {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-
-.menu a:hover{
-    color: #fff;
-    background: #1900ff5e;
-    text-decoration: underline;
-}
-
-/* Menu hambúrguer para celular */
-.menu-toggle{
-    display: none;
+h1 span {
+  font-weight: bold;
+  color: white;
 }
 
 /* TABELA responsiva */
@@ -73,25 +46,18 @@ h1{
     width: 100%;
 }
 
-.header a:link, .header a:visited{
-    color: #000;
-    padding: 8px 15px;
-}
-
-.header a:hover{
-    color: #ffffff;
-    background: #1900ff5e;
-    text-decoration: underline;
-}
-
 /* Caixa que envolve caminhões e listas*/
-.caminhoes, .lista{
-    margin: 20px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background: #f9f9f9;
+.lista{
+    margin: 20px auto;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    background: #f4f4f4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 95%;
+    max-width: 1200px;
 }
+
 
 /*Esconder os elementos*/
 .oculto {
@@ -118,8 +84,22 @@ h1{
 /*  
 ****** Formulários ******  
 */
+.adicionar{
+    background-color: #f4f4f4;
+    color: #000;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 95%;
+    max-width: 1200px;
+}
+
 form {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Inputs */
@@ -151,6 +131,7 @@ form select{
 /* Botão dentro do form */
 form button{
     padding: 8px 15px;
+    margin-top: 8px;
     cursor: pointer;
     background: green;
     color: white;
@@ -188,6 +169,7 @@ th, td{
 
 th{
     background-color: #f4f4f4;
+    color: #000;
     font-weight: bold;
 }
 
@@ -237,26 +219,24 @@ td{
     background: #0056b3;
 }
 
-.menu.show {
-    display: flex;
-    z-index: 1000;
-}
-
 /*
 ******FILTRO******
 */
 .lista h3{
+    font-size: 1.5rem;
+    font-weight: bold;
     text-align: center;
-    margin-bottom: 10px;
+    color: #000;
+    margin-bottom: 15px;
 }
 
 .filtro{
+    color: #000;
     text-align: right;
     margin: 0 auto;
 }
 
 .filtro select{
-    
     max-width: 80%;
     background-color: #fff;
     border-radius: 8px 8px;
@@ -264,8 +244,80 @@ td{
 
 .filtro label, input{
     max-width: 80%;
-    font-size: 12px;
+    font-size: 11px;
     border-radius: 8px 8px;
+}
+
+/* 
+******Aba Totais******
+*/
+.caminhoes, .cabecalhoTotal{
+  background: rgba(13, 71, 161, 0.85);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.filtroTotal{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.filtroLinha{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+
+.filtroLinha select {
+  width: 33%;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background: #1E88E5;
+  color: white;
+  font-weight: bold;
+  appearance: none;
+  text-align: center;
+}
+
+.dataFil{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.box {
+  background: #1E88E5;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 10px 0;
+}
+
+.box h3 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.box p {
+  margin: 5px 0 0;
+  font-size: 1.2rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  text-align: center;
+}
+
+.containerList {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
 }
 
 /*  
@@ -275,29 +327,6 @@ Regras para telas menores
 
 @media (max-width: 769px){
     /* Ajusta menu */
-    .menu-toggle{
-        display: block;
-    }
-
-    .menu {
-    display: none;
-    flex-direction: column;
-    background: #f4f4f4;
-    position: static;
-    top: 60px;
-    right: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    }
-
-    .menu.show{
-        display: flex;
-    }
-
-    .menu a{
-        text-align: center;
-        padding: 12px;
-    }
 
     body{
         font-size: 18px;
@@ -336,4 +365,61 @@ Regras para telas menores
     max-width: 110px;
     font-size: 7px;
   }
+}
+
+/* Botão hambúrguer fixo */
+.menu-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 1001;
+  color: white;
+  background: #005bea;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+}
+
+/* Menu lateral */
+.hamburger {
+  position: fixed;
+  top: 0;
+  left: -250px; /* escondido inicialmente */
+  width: 250px;
+  height: 100%;
+  background: #0d47a1;
+  color: white;
+  padding-top: 60px;
+  transition: 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.hamburger a {
+  padding: 15px 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.hamburger a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Quando aberto */
+.hamburger.show {
+  left: 0;
+}
+
+/* Ajusta o conteúdo pra não ficar escondido */
+.container {
+  transition: margin-left 0.3s ease;
+}
+
+.container.shift {
+  margin-left: 250px;
 }

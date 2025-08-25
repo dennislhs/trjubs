@@ -11,103 +11,104 @@
     <script defer src="js/script.js"></script>
 </head>
 <body>
-    <div class="header">
-        <div class="logo">
-            <h1><span class="sp">TR.</span> JUBS</h1>
-        </div>
+    <div class="containerList">
+        <h1><span class="sp">TR.</span> JUBS</h1>
 
-        <button class="menu-toggle">☰</button>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
 
-        <div class="menu">
-            <a href="index.html" style="background-color: blue; color: #fff;">Home</a>
-            <a href="servicos.html">Serviços</a>
-            <a href="abastecimento.html">Abastecimentos</a>
-            <a href="pecas.html">Peças</a>
-            <a href="empresas.html">Empresas</a>
-            <a href="caminhoes.html">Caminhões</a>
-            <a href="obras.html">Obras</a>
-        </div> 
-    </div>
+        <nav class="hamburger" id="hamburger">
+            <a href="index.html" style="background-color: blue; color: #fff;">🏠 Home</a>
+            <a href="servicos.html">🧱 Serviços</a>
+            <a href="abastecimento.html">🛢 Abastecimentos</a>
+            <a href="pecas.html">🔧 Peças</a>
+            <a href="empresas.html">🏢 Empresas</a>
+            <a href="caminhoes.html">🚚 Caminhões</a>
+            <a href="obras.html">🏗️ Obras</a>
+            <a href="totais.html">📊 Totais</a>
+        </nav> 
 
-    <div id="hom">
-        <div class="inter">    
-            <h2 class="cabecalho">Adicionar Serviços</h2>
-            <button class="btnAdicionarHom" onclick="abrirFormulario ('formServico')">Adicionar Serviço</button>
+        <div id="hom">
+            <div class="inter">    
+                <h2 class="cabecalho">Adicionar Serviços</h2>
+                <button class="btnAdicionarHom" onclick="abrirFormulario ('formServico')">Adicionar Serviço</button>
 
-            <form id="formServico" class="oculto" onsubmit="adicionarServico(event)">
+                <form id="formServico" class="oculto" onsubmit="adicionarServico(event)">
 
-                <input class="org" type="number" id="qtd" placeholder="Quantidade de Carrada" required>
-                <input class="org" type="number" step="0.001" id="peso" placeholder="Peso em Toneladas">
-                <br>
-                <input class="org" type="date" id="dataSv" required>
-                <br>
+                    <input class="org" type="number" id="qtd" placeholder="Quantidade de Carrada" required>
+                    <input class="org" type="number" step="0.001" id="peso" placeholder="Peso em Toneladas">
+                    <br>
+                    <label class="org">Data:</label>
+                    <input class="org" type="date" id="dataSv" required>
+                    <br>
 
-                <label class="org" for="obra">Obra:</label>
-                <select class="org" id="obra" required>
-                    <option value="">Selecione uma obra</option>
-                </select>
-                <br>
-                <label class="org" for="caminhaoSv">Caminhão:</label>
-                <select class="org" id="caminhaoSv" required>
-                    <option value="">Selecione um caminhão</option>
-                </select>
+                    <label class="org" for="obra">Obra:</label>
+                    <select class="org" id="obra" required>
+                        <option value="">Selecione uma obra</option>
+                    </select>
+                    <br>
+                    <label class="org" for="caminhaoSv">Caminhão:</label>
+                    <select class="org" id="caminhaoSv" required>
+                        <option value="">Selecione um caminhão</option>
+                    </select>
 
-                <button class="org" type="submit">Salvar</button>
-            </form>
-        </div>
+                    <button class="org" type="submit">Salvar</button>
+                </form>
+            </div>
 
-        <div class="inter">
-            <h2 class="cabecalho">Abastecimentos</h2>
-            <button class="btnAdicionarHom" onclick="abrirFormulario ('formAbastecimento')">Adicionar Abastecimento</button>
+            <div class="inter">
+                <h2 class="cabecalho">Abastecimentos</h2>
+                <button class="btnAdicionarHom" onclick="abrirFormulario ('formAbastecimento')">Adicionar Abastecimento</button>
 
-            <form id="formAbastecimento" class="oculto" onsubmit="adicionarAbastecimento(event)">
+                <form id="formAbastecimento" class="oculto" onsubmit="adicionarAbastecimento(event)">
 
-                <label class="org" for="valor_totalAbastecimento">R$</label>
-                <input class="org" type="number" step="0.01" id="valor_totalAbastecimento" placeholder="valor do Abastecimento" required>
+                    <label class="org" for="valor_totalAbastecimento">R$</label>
+                    <input class="org" type="number" step="0.01" id="valor_totalAbastecimento" placeholder="valor do Abastecimento" required>
 
-                <input class="org" type="number" step="0.01" id="litroAbastecimento" placeholder="Litros do Abastecimento">
-                <br>
-                <input class="org" type="date" id="dataAb" required>
-                <br>
+                    <input class="org" type="number" step="0.01" id="litroAbastecimento" placeholder="Litros do Abastecimento">
+                    <br>
+                    <label class="org">Data:</label>
+                    <input class="org" type="date" id="dataAb" required>
+                    <br>
 
-                <label class="org" for="empresaAb">Empresa:</label>
-                <select class="org" id="empresaAb" required>
-                    <option value="">Selecione uma empresa</option>
-                </select>
+                    <label class="org" for="empresaAb">Empresa:</label>
+                    <select class="org" id="empresaAb" required>
+                        <option value="">Selecione uma empresa</option>
+                    </select>
 
-                <label class="org" for="caminhaoAb">Caminhão:</label>
-                <select class="org" id="caminhaoAb" required>
-                    <option value="">Selecione um caminhão</option>
-                </select>
+                    <label class="org" for="caminhaoAb">Caminhão:</label>
+                    <select class="org" id="caminhaoAb" required>
+                        <option value="">Selecione um caminhão</option>
+                    </select>
 
-                <button class="org" type="submit">Salvar</button>
-            </form>
-        </div>
+                    <button class="org" type="submit">Salvar</button>
+                </form>
+            </div>
 
-        <div class="inter">
-            <h2 class="cabecalho">Obras</h2>
-            <button class="btnAdicionarHom" onclick="abrirFormulario ('formObra')">Adicionar Obra</button>
+            <div class="inter">
+                <h2 class="cabecalho">Obras</h2>
+                <button class="btnAdicionarHom" onclick="abrirFormulario ('formObra')">Adicionar Obra</button>
 
-            <form id="formObra" class="oculto" onsubmit="adicionarObra(event)">
+                <form id="formObra" class="oculto" onsubmit="adicionarObra(event)">
 
-                <label class="org" for="empresaOb">Empresa:</label>
-                <select class="org" id="empresaOb" required>
-                    <option value="">Selecione uma empresa</option>
-                </select>
+                    <label class="org" for="empresaOb">Empresa:</label>
+                    <select class="org" id="empresaOb" required>
+                        <option value="">Selecione uma empresa</option>
+                    </select>
 
-                <input class="org" type="text" id="nome" placeholder="Nome da Obra" required>
-                <br>
-                <label class="org" for="preco_fixo">Preço Fixo? Sim:</label>
-                <input class="org" type="checkbox" id="preco_fixo">
-                <br>
-                <input class="org" step="0.01" type="number" id="valor_km" placeholder="Valor do KM/T">
-                <input class="org" step="0.01" type="number" id="km_distancia" placeholder="Distancia em KM">
-                <input class="org" step="0.01" type="number" id="valor_total" placeholder="Valor total preço fixo">
-                <br>
-                <button class="org" type="submit">Salvar</button>
-            </form>
-    </div>
+                    <input class="org" type="text" id="nome" placeholder="Nome da Obra" required>
+                    <br>
+                    <label class="org" for="preco_fixo">Preço Fixo? Sim:</label>
+                    <input class="org" type="checkbox" id="preco_fixo">
+                    <br>
+                    <input class="org" step="0.01" type="number" id="valor_km" placeholder="Valor do KM/T">
+                    <input class="org" step="0.01" type="number" id="km_distancia" placeholder="Distancia em KM">
+                    <input class="org" step="0.01" type="number" id="valor_total" placeholder="Valor total preço fixo">
+                    <br>
+                    <button class="org" type="submit">Salvar</button>
+                </form>
+            </div>
 
+            </div>
     </div>
 
 </body>

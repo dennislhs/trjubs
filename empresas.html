@@ -12,39 +12,38 @@
     <script defer src="js/empresas.js"></script>
 </head>
 <body>
-    <div class="header">
-        <div class="logo">
-            <h1><span class="sp">TR.</span> JUBS</h1>
+    <div class="containerList">
+        <h1><span class="sp">TR.</span> JUBS</h1>
+
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+
+        <nav class="hamburger" id="hamburger">
+            <a href="index.html">🏠 Home</a>
+            <a href="servicos.html">🧱 Serviços</a>
+            <a href="abastecimento.html">🛢 Abastecimentos</a>
+            <a href="pecas.html">🔧 Peças</a>
+            <a href="empresas.html" style="background-color: blue; color: #fff;">🏢 Empresas</a>
+            <a href="caminhoes.html">🚚 Caminhões</a>
+            <a href="obras.html">🏗️ Obras</a>
+            <a href="totais.html">📊 Totais</a>
+        </nav> 
+
+        <div class="adicionar">
+            <h2 class="cabecalho">Empresas</h2>
+            <button class="btnAdicionar" onclick="abrirFormulario('formEmpresa')">Adicionar Empresa</button>
+            <form id="formEmpresa" class="oculto" onsubmit="adicionarEmpresa(event)">
+                <input type="text" id="nomeEmpresa" placeholder="Nome da Empresa" required>
+                <input type="text" id="cnpjEmpresa" placeholder="CNPJ" required>
+                <button type="submit">Salvar</button>
+            </form>
         </div>
-    
-        <button class="menu-toggle">☰</button>
 
-        <div class="menu">
-            <a href="index.html">Home</a>
-            <a href="servicos.html">Serviços</a>
-            <a href="abastecimento.html">Abastecimentos</a>
-            <a href="pecas.html">Peças</a>
-            <a href="empresas.html" style="background-color: blue; color: #fff;">Empresas</a>
-            <a href="caminhoes.html">Caminhões</a>
-            <a href="obras.html">Obras</a>
-        </div> 
+        <div class="lista">
+            <h3>Lista de Empresas</h3>
+            
+            <div class="table-container" id="listaEmpresas"></div>
+        </div>
     </div>
-
-    <div class="caminhoes">
-        <h2 class="cabecalho">Empresas</h2>
-        <button class="btnAdicionar" onclick="abrirFormulario('formEmpresa')">Adicionar Empresa</button>
-        <form id="formEmpresa" class="oculto" onsubmit="adicionarEmpresa(event)">
-            <input type="text" id="nomeEmpresa" placeholder="Nome da Empresa" required>
-            <input type="text" id="cnpjEmpresa" placeholder="CNPJ" required>
-            <button type="submit">Salvar</button>
-        </form>
-    </div>
-
-    <div class="lista">
-        <h3>Lista de Empresas</h3>
         
-        <div class="table-container" id="listaEmpresas"></div>
-    </div>
-    
 </body>
 </html>

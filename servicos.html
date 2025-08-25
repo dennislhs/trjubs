@@ -11,73 +11,73 @@
     <script defer src="js/servicos.js"></script>
 </head>
 <body>
-    <div class="header">
-        <div class="logo">
-            <h1><span class="sp">TR.</span> JUBS</h1>
-        </div>
-
-        <button class="menu-toggle">☰</button>
-
-        <div class="menu">
-            <a href="index.html">Home</a>
-            <a href="servicos.html" style="background-color: blue; color: #fff;">Serviços</a>
-            <a href="abastecimento.html">Abastecimentos</a>
-            <a href="pecas.html">Peças</a>
-            <a href="empresas.html">Empresas</a>
-            <a href="caminhoes.html">Caminhões</a>
-            <a href="obras.html">Obras</a>
-        </div> 
-    </div>
     
-    <div class="caminhoes">
-        <h2 class="cabecalho">Serviços</h2>
-        <button class="btnAdicionar" onclick="abrirFormulario ('formServico')">Adicionar Serviço</button>
+    <div class="containerList">
+        <h1><span class="sp">TR.</span> JUBS</h1>
 
-        <form id="formServico" class="oculto" onsubmit="adicionarServico(event)">
+        <div class="menu-toggle" id="menu-toggle">☰</div>
 
-            <input type="number" id="qtd" placeholder="Quantidade de Carrada" required>
-            <input type="number" step="0.001" id="peso" placeholder="Peso em Toneladas">
-            <br>
-            <label for="data">Data:</label>
-            <input type="date" id="data" required>
-            <br>
+        <nav class="hamburger" id="hamburger">
+            <a href="index.html">🏠 Home</a>
+            <a href="servicos.html" style="background-color: blue; color: #fff;">🧱 Serviços</a>
+            <a href="abastecimento.html">🛢 Abastecimentos</a>
+            <a href="pecas.html">🔧 Peças</a>
+            <a href="empresas.html">🏢 Empresas</a>
+            <a href="caminhoes.html">🚚 Caminhões</a>
+            <a href="obras.html">🏗️ Obras</a>
+            <a href="totais.html">📊 Totais</a>
+        </nav>
 
-            <label for="obra">Obra:</label>
-            <select id="obra" required>
-                <option value="">Selecione uma obra</option>
-            </select>
+        <div class="adicionar">
+            <h2 class="cabecalho">Serviços</h2>
+            <button class="btnAdicionar" onclick="abrirFormulario ('formServico')">Adicionar Serviço</button>
 
-            <label for="caminhao">Caminhão:</label>
-            <select id="caminhao" required>
-                <option value="">Selecione um caminhão</option>
-            </select>
+            <form id="formServico" class="oculto" onsubmit="adicionarServico(event)">
 
-            <button type="submit">Salvar</button>
-        </form>
-    </div>
-    
-    <div class="lista">
-        <h3>Lista de Serviços</h3>
+                <input type="number" id="qtd" placeholder="Quantidade de Carrada" required>
+                <input type="number" step="0.001" id="peso" placeholder="Peso em Toneladas">
+                <br>
+                <label for="data">Data:</label>
+                <input type="date" id="data" required>
+                <br>
 
-        <div class="filtro">
+                <label for="obra">Obra:</label>
+                <select id="obra" required>
+                    <option value="">Selecione uma obra</option>
+                </select>
 
-            <select id="filtroObra">
-                <option value="">Obras</option>
-            </select>
-
-            <select id="filtroCaminhao">
-                <option value="">Caminhões</option>
-            </select>
-            <br>
-            <label for="dataIn">De:</label>
-            <input type="date" id="dataIn">
-
-            <label for="dataFn">Até:</label>
-            <input type="date" id="dataFn">
-
+                <label for="caminhao">Caminhão:</label>
+                <select id="caminhao" required>
+                    <option value="">Selecione um caminhão</option>
+                </select>
+                <br>
+                <button type="submit">Salvar</button>
+            </form>
         </div>
+        
+        <div class="lista">
+            <h3>Lista de Serviços</h3>
 
-        <div class="table-container" id="listaServicos"></div>
+            <div class="filtro">
+
+                <select id="filtroObra">
+                    <option value="">Obras</option>
+                </select>
+
+                <select id="filtroCaminhao">
+                    <option value="">Caminhões</option>
+                </select>
+                <br>
+                <label for="dataIn">De:</label>
+                <input type="date" id="dataIn">
+
+                <label for="dataFn">Até:</label>
+                <input type="date" id="dataFn">
+
+            </div>
+
+            <div class="table-container" id="listaServicos"></div>
+        </div>
     </div>
 
 </body>

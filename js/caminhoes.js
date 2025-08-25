@@ -68,12 +68,14 @@ async function listarCaminhoes(){
 document.addEventListener("DOMContentLoaded", () => {
     listarCaminhoes();
 
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('.menu');
+    const menuToggle = document.getElementById("menu-toggle");
+    const hamburger = document.getElementById("hamburger");
+    const container = document.querySelector(".container");
 
-    if (menuToggle && menu) {
-        menuToggle.addEventListener('click', () => {
-            menu.classList.toggle('show');
+    if (menuToggle && hamburger) {
+        menuToggle.addEventListener("click", () => {
+            hamburger.classList.toggle("show");
+            container.classList.toggle("shift");
         });
     }
 });

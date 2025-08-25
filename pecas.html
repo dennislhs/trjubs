@@ -11,60 +11,61 @@
     <script defer src="js/pecas.js"></script>
 </head>
 <body>
-    <div class="header">
-        <div class="logo">
-            <h1><span class="sp">TR.</span> JUBS</h1>
-        </div>
+    <div class="containerList">
+        <h1><span class="sp">TR.</span> JUBS</h1>
 
-        <button class="menu-toggle">☰</button>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
 
-        <div class="menu">
-            <a href="index.html">Home</a>
-            <a href="servicos.html">Serviços</a>
-            <a href="abastecimento.html">Abastecimentos</a>
-            <a href="pecas.html" style="background-color: blue; color: #fff;">Peças</a>
-            <a href="empresas.html">Empresas</a>
-            <a href="caminhoes.html">Caminhões</a>
-            <a href="obras.html">Obras</a>
-        </div> 
-    </div>
+        <nav class="hamburger" id="hamburger">
+            <a href="index.html">🏠 Home</a>
+            <a href="servicos.html">🧱 Serviços</a>
+            <a href="abastecimento.html">🛢 Abastecimentos</a>
+            <a href="pecas.html" style="background-color: blue; color: #fff;">🔧 Peças</a>
+            <a href="empresas.html">🏢 Empresas</a>
+            <a href="caminhoes.html">🚚 Caminhões</a>
+            <a href="obras.html">🏗️ Obras</a>
+            <a href="totais.html">📊 Totais</a>
+        </nav> 
     
-    <div class="caminhoes">
-        <h2 class="cabecalho">Peças</h2>
-        <button class="btnAdicionar" onclick="abrirFormulario ('formPeca')">Adicionar Peça</button>
+        <div class="adicionar">
+            <h2 class="cabecalho">Peças</h2>
+            <button class="btnAdicionar" onclick="abrirFormulario ('formPeca')">Adicionar Peça</button>
 
-        <form id="formPeca" class="oculto" onsubmit="adicionarPeca(event)">
+            <form id="formPeca" class="oculto" onsubmit="adicionarPeca(event)">
 
-            <input type="text" id="tipoPeca" placeholder="Descrição" required>
-            <input type="number" step="0.001" id="km_atual" placeholder="KM Atual" required>
-            <br>
-            <input type="date" id="data" required>
-            <br>
+                <input type="text" id="tipoPeca" placeholder="Descrição" required>
+                <input type="number" step="0.001" id="km_atual" placeholder="KM Atual" required>
+                <br>
+                <label class="org">Data:</label>
+                <input type="date" id="data" required>
+                <br>
 
-            <label for="caminhao">Caminhão:</label>
-            <select id="caminhao" required>
-                <option value="">Selecione um caminhão</option>
-            </select>
+                <label for="caminhao">Caminhão:</label>
+                <select id="caminhao" required>
+                    <option value="">Selecione um caminhão</option>
+                </select>
 
-            <button type="submit">Salvar</button>
-        </form>
-    </div>
-    
-    <div class="lista">
-        <h3>Lista de Peças</h3>
-
-        <div class="filtro">
-
-            <select id="filtroObra">
-                <option value="">Obras</option>
-            </select>
-
-            <select id="filtroCaminhao">
-                <option value="">Caminhões</option>
-            </select>
+                <button type="submit">Salvar</button>
+            </form>
         </div>
         
-        <div class="table-container" id="listaPecas"></div>
+        <div class="lista">
+            <h3>Lista de Peças</h3>
+
+            <div class="filtro">
+
+                <select id="filtroObra">
+                    <option value="">Obras</option>
+                </select>
+
+                <select id="filtroCaminhao">
+                    <option value="">Caminhões</option>
+                </select>
+            </div>
+            
+            <div class="table-container" id="listaPecas"></div>
+        </div>
     </div>
+
 </body>
 </html>

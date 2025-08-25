@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Totais</title>
+    <link rel="stylesheet" href="css/style01.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script defer src="js/totais.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1><span class="sp">TR.</span> JUBS</h1>
+
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+
+        <nav class="hamburger" id="hamburger">
+            <a href="index.html">🏠 Home</a>
+            <a href="servicos.html">🧱 Serviços</a>
+            <a href="abastecimento.html">🛢 Abastecimentos</a>
+            <a href="pecas.html">🔧 Peças</a>
+            <a href="empresas.html">🏢 Empresas</a>
+            <a href="caminhoes.html">🚚 Caminhões</a>
+            <a href="obras.html">🏗️ Obras</a>
+            <a href="totais.html" style="background-color: blue; color: #fff;">📊 Totais</a>
+        </nav>
+        
+        <div class="caminhoes">
+            <h2 class="cabecalhoTotal">Totais</h2>
+            
+            <div class="filtroTotal">
+
+                <div class="filtroLinha">
+                    <select id="filtroEmpresa">
+                    <option value="">Empresa</option>
+                    </select>
+
+                    <select id="filtroObra">
+                        <option value="">Obras</option>
+                    </select>                
+
+                    <select id="filtroCaminhao">
+                        <option value="">Caminhões</option>
+                    </select>
+                </div>
+
+                <div class="dataFil">
+                    <label for="dataIn">De:</label>
+                    <input type="date" id="dataIn">
+
+                    <label for="dataFn">Até:</label>
+                    <input type="date" id="dataFn" placeholder="dd/mm/aa">
+                </div>
+            </div>
+
+            <div class="box" id="totalAbastecimento">
+                <h3>R$ ---</h3>
+                <p>Abastecimentos</p>
+            </div>
+
+            <div class="box" id="totalCarrada">
+                <h3>---</h3>
+                <p>Carradas</p>
+            </div>
+
+            <div class="box" id="total">
+                <h3>R$ ---</h3>
+                <p>Valor Liquido</p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
