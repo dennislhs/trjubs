@@ -382,7 +382,7 @@ Regras para telas menores
     padding: 8px 12px;
     border-radius: 6px;
     border: none;
-    z-index: 1001;
+    z-index: 10000;
 }
 
 .hamburger span{
@@ -408,6 +408,7 @@ Regras para telas menores
 
 
 .menu{
+    
     position: fixed;
     top: 0;
     left: -100%;
@@ -416,6 +417,7 @@ Regras para telas menores
     background: #005bea;
     padding: 100px 20px;
     transition: 0.3s;
+    z-index: 9999;
 }
 
 .menu.active {
